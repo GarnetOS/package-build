@@ -3,7 +3,7 @@ dist: trusty
 os: linux
 language: minimal
 install:
-- apt update
-- apt install chroot
+- sudo apt update
+- sudo apt install chroot
 script:
 - ls
