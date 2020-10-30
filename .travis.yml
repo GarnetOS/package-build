@@ -2,5 +2,8 @@ sudo: required
 dist: trusty
 os: linux
 language: minimal
+install:
+- apt update
+- apt install chroot
 script:
 - ls
