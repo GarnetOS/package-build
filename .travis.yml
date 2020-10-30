@@ -4,6 +4,6 @@ os: linux
 language: minimal
 install:
 - sudo apt update
-- sudo apt install chroot
+- sudo apt install dchroot debootstrap
 script:
 - ls
