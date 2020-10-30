@@ -7,5 +7,5 @@ install:
 - sudo apt install dchroot debootstrap
 script:
 - ls
-- chroot /
+- sudo chroot /
 - ls
