@@ -6,6 +6,6 @@ install:
 - sudo apt update
 - sudo apt install dchroot debootstrap
 script:
-- ls
-- sudo chroot /
-- ls
+- wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.0/chroot.tar.gz
+- tar -xvf chroot.tar.gz
+- sudo chroot ./chroot -c "ls; exit"
