@@ -1,0 +1,6 @@
+sudo: required
+dist: trusty
+os: linux
+language: minimal
+script:
+-ls
