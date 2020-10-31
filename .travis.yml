@@ -15,6 +15,6 @@ script:
 - sudo mount --bind /dev ./chroot/dev/
 - sudo chroot ./chroot build-scripts/apr.sh
 - ls
-- umount ./chroot/dev
+- sudo umount ./chroot/dev
 - sudo xargs rm -r -f <delete
 - find ./chroot/
