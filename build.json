@@ -1,6 +1,6 @@
 {
     "package": {
-        "name": "$PACK",
+        "name": "apr",
         "repo": "package-build",
         "subject": "GarnetOS",
         "vcs_url": "https://github.com/bintray/bintray-client-java.git",
