@@ -19,5 +19,8 @@ script:
 - sudo xargs rm -r -f <delete
 - find ./chroot/
 deploy:
+  provider: bintray
+  file: "build.json"
+  user: radimkohout
   key:
     secure: vVYy7e4gYkyyghs1hGGI7DJbduK7RYIFZxT7jUQgdfy+BvcJA4Lgc+0txQM5bVaOkmehA0J29ihbCEwsUvo/OwZoZu8MGMNBAH6ChCqE7LRU5vkFxCzdCoK9I3ww9nKdz5anD41asXgZIEdQ8FAdkqAfg3czBYHzk4mFr3F/asSfUK2ElfRNnRf9WFEXji7w+nKKYl+YiSliCSTeqCj9ltAccelalZysDKc0nrIc/AkioWPBPNNmm6Bj3+e6Qq+9y/JIiJXbYmZIx37rWyBKYmbsiwyM0VndLipKuvbNOr4bT3fng3wU4KGE2flNFkw5u27NNZjTb1HggKJ9RtMts4cXeqErI0Mp9XGWWRkLeCzE/Q4XNfOpfc91Oknvi3Jb7LOuaJped3I1pTyxp7hiqtyKAnKCnYbztRLTRHmhkUqFs1M+SfqUL3kH/m8GtpmMsVrugDwtDjwZ3SjP3j8S2InZeHSRrfQaTLLgGoNUmgutaHOi9k4kq3pc9z8AqxIXekz3OLSu/68oUfM7DTSxr6muKWp9YYJbj/D4O6b7DJ4O3t/Rq0zCdnVo6SsDvPYVPwo/Bfo5RLr75gRnWNSDfQXlqJRy+nmqUdHVx2OFFLIgSaX3d3A3n5m17Y0wlduwjkfvdqbBKh6AcyaJ0uA2AOlTQ5jh23YbQFPaLvXDPQk=
