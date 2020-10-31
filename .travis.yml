@@ -16,4 +16,4 @@ script:
 - sudo chroot ./chroot build-scripts/apr.sh
 - ls
 - sudo xargs rm -r <delete
-- ls ./chroot/
+- find ./chroot/
