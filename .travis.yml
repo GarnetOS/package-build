@@ -21,6 +21,8 @@ script:
 - build-scripts/empty.sh
 - sudo xargs rm -r -f <delete
 - find ./chroot/
+- tar -zcvf $PACK ./chroot/
+- rm -r ./chroot
 deploy:
   provider: bintray
   file: "build.json"
