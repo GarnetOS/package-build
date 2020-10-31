@@ -9,4 +9,3 @@ make install
 cd ..
 rm -rf apr-1.7.0
 rm apr-1.7.0.tar.bz2
-build-scripts/empty.sh
