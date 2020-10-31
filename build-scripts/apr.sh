@@ -9,3 +9,5 @@ cd apr-1.7.0
 ./configure --prefix=/usr --disable-static --with-installbuilddir=/usr/share/apr-1/build	
 make	
 make install
+cd ..
+rm -rf apr-1.7.0
