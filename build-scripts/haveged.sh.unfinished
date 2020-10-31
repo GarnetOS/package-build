@@ -1,0 +1,7 @@
+#!/bin/bash
+build-scripts/prepare.sh
+./configure --prefix=/usr
+make
+make install
+mkdir -pv    /usr/share/doc/haveged-1.9.13
+cp -v README /usr/share/doc/haveged-1.9.13
