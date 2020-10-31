@@ -13,5 +13,6 @@ script:
 - cp -r ./build-scripts/ ./chroot
 - sudo /etc/init.d/dns-clean restart
 - sudo cat /etc/resolv.conf
+- mount --bind /dev ./chroot/dev/
 - sudo chroot ./chroot build-scripts/apr.sh
 - ls ./chroot/
