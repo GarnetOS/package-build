@@ -1,4 +1,4 @@
 #!/bin/bash
 ls
-umount -l /dev
-find . -type d -empty -delete
+sudo umount -l /dev
+sudo find . -type d -empty -delete
