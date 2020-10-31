@@ -1,5 +1,5 @@
 #/bin/sh
-wget https://archive.apache.org/dist/apr/apr-1.7.0.tar.bz2	
+wget ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.7.0.tar.bz2
 tar -xvf apr-1.7.0.tar.bz2	
 cd apr-1.7.0	
 ./configure --prefix=/usr    \	
