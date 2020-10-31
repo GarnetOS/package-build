@@ -1,4 +1,4 @@
 #!/bin/bash
 ls
 sudo umount -l ./chroot/dev
-sudo find . -type d -empty -delete
+sudo find ./chroot -type d -empty -delete
