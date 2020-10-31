@@ -1,2 +1,2 @@
 #!/bin/bash
-rmdir ./*
+find . -type d -empty -delete
