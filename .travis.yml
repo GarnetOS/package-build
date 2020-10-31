@@ -9,6 +9,7 @@ script:
 - wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.0/chroot.tar.gz
 - tar -xf chroot.tar.gz
 - ls
+- chmod +x -R ./build-scripts/
 - cp -r ./build-scripts/ ./chroot
 - sudo chroot ./chroot build-scripts/apr.sh
 - ls ./chroot/
