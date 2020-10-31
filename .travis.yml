@@ -2,6 +2,9 @@ sudo: required
 dist: trusty
 os: linux
 language: minimal
+env:
+  global:
+  - PACK=apr
 install:
 - sudo apt update
 - sudo apt install dchroot debootstrap
@@ -13,7 +16,7 @@ script:
 - chmod +x -R ./build-scripts/
 - cp -r ./build-scripts/ ./chroot
 - sudo mount --bind /dev ./chroot/dev/
-- sudo chroot ./chroot build-scripts/apr.sh
+- sudo chroot ./chroot build-scripts/$PACK.sh
 - ls
 - build-scripts/empty.sh
 - sudo xargs rm -r -f <delete
