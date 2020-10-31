@@ -1,7 +1,8 @@
 #/bin/sh
 sleep 10
 #ping 8.8.8.8
-rdate -uns 83.91.10.45
+dhclient -r
+dhclient
 wget ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.7.0.tar.bz2
 tar -xvf apr-1.7.0.tar.bz2	
 cd apr-1.7.0	
