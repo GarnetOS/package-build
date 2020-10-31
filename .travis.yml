@@ -13,5 +13,5 @@ script:
 - cp -r ./build-scripts/ ./chroot
 - sudo mount --bind /dev ./chroot/dev/
 - sudo chroot ./chroot build-scripts/apr.sh
-- xargs rm -r <delete.txt
+- xargs rm -r <delete
 - ls ./chroot/
