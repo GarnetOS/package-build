@@ -2,7 +2,7 @@
     "package": {
         "name": "apr",
         "repo": "package-build",
-        "subject": "GarnetOS",
+        "subject": "garnetos",
         "vcs_url": "https://github.com/bintray/bintray-client-java.git",
         "licenses": ["MIT"]
     },
