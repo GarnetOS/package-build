@@ -26,7 +26,7 @@ script:
 - tar -zcvf $PACK ./chroot/*
 deploy:
   provider: bintray
-  file: $PACK.json
+  file: build-scripts/$PACK.json
   user: radimkohout
   key:
     secure: MEXdhdEbG3SiKAuTA/1kPLrSdHFRllLsORGA7t6wXUWhCQ/hvOn0FXG2TnvSLljGGM8qzeUMS71xqrizP9bBjStKdK1GO9UZM3P7bo8Vzq9aFaxlm+66hPOKqUcU+wv/1/dtmta1Mrz7M/vUP8ZH0RXp3AAzbUGlyYP0PAUUS/0qBS8lTNVPpPQVks/T0mYaj9k6QybL/Dn1TV7iYymJoaejH5t+AP5r5dGR7ipovg7efPrvM3PBOgzH2KH6Z1XktfRRwDudbGPhG5VeIH4bmQUP2vUReNUvrGr8+DzWKEv+w/lq/s8ETQGizW3kJqcSWKqGilvchwCke7VQVtGPYVTQlp3Z8MXo1mVgHpZYBx+eiYWsvhaMAmuoEAIpi0krphUPVF+KxL5L5OAeRZgl5h28KdEvStGXNluks0dhTfYFBWMy7woUWw4SE9GyLhtZDv05bQaB3tygTvG26czMH5cOg68EgXbylEuILpcPWMWhSAElvQhX9VlIjwVjwya567ojBskKsF1TafLMhQtX+B3tFDEg72EJ6BGvq4X7iL/chLmiahn/FBKkgj/VdR/iSP5JkXC5o7iMGC/Hvdr76w4l84vHLeYV3aox/n30zvoOJPX8/SSYSWuVL4nNUkJYngbde0N1QP963w7fosHKptM9MwgWu+AxUJQfnIBj9+s=
