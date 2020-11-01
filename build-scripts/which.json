@@ -17,7 +17,7 @@
 
     "files":
         [
-        {"includePattern": "apr", "uploadPattern": "apr"}
+        {"includePattern": "which", "uploadPattern": "which"}
         ],
     "publish": true
 }
