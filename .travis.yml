@@ -42,5 +42,6 @@ deploy:
   local_dir: out
   repo: GarnetOS/packages
   keep_history: true
+  target_branch: master
 after_deploy:
 - sudo rm -r ./chroot
