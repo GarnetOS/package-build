@@ -19,4 +19,5 @@
         [
         {"includePattern": "apr", "uploadPattern": "apr"}
         ],
-    "publ
+   "publish": true
+}
