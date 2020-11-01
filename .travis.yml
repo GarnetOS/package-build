@@ -41,5 +41,6 @@ deploy:
   keep_history: true
   local_dir: out
   repo: GarnetOS/packages
+  keep_history: true
 after_deploy:
 - sudo rm -r ./chroot
