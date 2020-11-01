@@ -6,6 +6,7 @@ env:
   matrix:
   - PACK=which
   - PACK=zip
+  - PACK=apr
 install:
 - sudo apt update
 - sudo apt install dchroot debootstrap
