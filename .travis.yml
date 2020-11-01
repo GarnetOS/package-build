@@ -9,7 +9,7 @@ env:
   - PACK=apr
 install:
 - sudo apt update
-- sudo apt install dchroot debootstrap
+- sudo apt install dchroot debootstrap git
 script:
 - wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.1/chroot.tar.gz
 - wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.1/delete
@@ -27,6 +27,8 @@ script:
 - tar -zcvf $PACK -C chroot .
 - mkdir out
 - cp $PACK ./out/
+after_success:
+- 
 #deploy:
 #  provider: bintray
 #  file: build-scripts/$PACK.json
@@ -42,10 +44,10 @@ script:
 #  repo: GarnetOS/packages
 #  keep_history: true
 #  target_branch: master
-deploy:
-  provider: releases
-  api_key: $GITHUB_TOKEN
-  file: $PACK
-  skip_cleanup: true
-after_deploy:
+#deploy:
+#  provider: releases
+#  api_key: $GITHUB_TOKEN
+#  file: $PACK
+#  skip_cleanup: true
+after_script:
 - sudo rm -r ./chroot
