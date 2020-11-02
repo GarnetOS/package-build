@@ -9,6 +9,8 @@ env:
 install:
 - sudo apt update
 - sudo apt install dchroot debootstrap git
+- wget https://github.com/cli/cli/releases/download/v1.2.0/gh_1.2.0_linux_amd64.deb
+- sudo dpkg -i gh_1.2.0_linux_amd64.deb
 script:
 - wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.1/chroot.tar.gz
 - wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.1/delete
