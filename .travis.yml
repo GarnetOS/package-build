@@ -26,8 +26,6 @@ script:
 - tar -zcvf $PACK -C chroot .
 - mkdir out
 - cp $PACK ./out/
-after_success:
-- 
 #deploy:
 #  provider: bintray
 #  file: build-scripts/$PACK.json
@@ -49,5 +47,5 @@ after_success:
 #  file: $PACK
 #  skip_cleanup: true
 after_script:
-- sh upload.sh
+- bash upload.sh
 - sudo rm -r ./chroot
