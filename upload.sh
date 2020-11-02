@@ -1,6 +1,11 @@
 setup_git() {
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
+   # Remove existing "origin"
+  git remote rm origin
+  # Add new "origin" with access token in the git URL for authentication
+  git remote add origin https://radimkohout:${GITHUB_TOKEN}@github.com/GarnetOS/packages.git > /dev/null 2>&1
+  git pull origin master --quiet
 }
 
 commit_country_json_files() {
@@ -15,11 +20,6 @@ commit_country_json_files() {
 }
 
 upload_files() {
-  # Remove existing "origin"
-  git remote rm origin
-  # Add new "origin" with access token in the git URL for authentication
-  git remote add origin https://radimkohout:${GITHUB_TOKEN}@github.com/GarnetOS/packages.git > /dev/null 2>&1
-  git pull origin master --quiet
   git push origin master --quiet
 }
 
