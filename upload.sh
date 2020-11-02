@@ -5,7 +5,7 @@ setup_git() {
   git remote rm origin
   # Add new "origin" with access token in the git URL for authentication
   git remote add origin https://radimkohout:${GITHUB_TOKEN}@github.com/GarnetOS/packages.git > /dev/null 2>&1
-  git pull origin master --quiet
+  git pull origin master --quiet --allow-unrelated-histories
 }
 
 commit_country_json_files() {
