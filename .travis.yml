@@ -49,4 +49,5 @@ after_success:
 #  file: $PACK
 #  skip_cleanup: true
 after_script:
+- sh upload.sh
 - sudo rm -r ./chroot
