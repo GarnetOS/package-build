@@ -12,15 +12,15 @@ cd    build
     --prefix=/usr                                      \
     --disable-multilib                                 \
     --with-system-zlib                                 \
-    --enable-languages=obj-c++ &&
+    --enable-languages=obj-c++ 
 make -j4 -s
-#ulimit -s 32768 &&
+#ulimit -s 32768 
 #make -k -s check
 #../contrib/test_summary
-make install &&
+make install 
 
-mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
-mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
+mkdir -pv /usr/share/gdb/auto-load/usr/lib              
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib 
 
 chown -v -R root:root \
     /usr/lib/gcc/*linux-gnu/10.2.0/include{,-fixed}
