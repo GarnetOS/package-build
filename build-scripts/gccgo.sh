@@ -15,7 +15,7 @@ cd    build
 make -j4 -s
 #ulimit -s 32768 &&
 #make -k -s check
-../contrib/test_summary
+#../contrib/test_summary
 make install &&
 
 mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
