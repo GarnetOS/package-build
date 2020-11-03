@@ -1,0 +1,8 @@
+build-scripts/prepare.sh
+wget http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
+tar -xvf popt-1.18.tar.gz
+cd popt-1.18
+
+cd ..
+rm popt-1.18.tar.gz
+rm -rf popt-1.18
