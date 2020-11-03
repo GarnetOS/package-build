@@ -3,9 +3,7 @@ os: linux
 language: minimal
 env:
   matrix:
-  - PACK=which
-  - PACK=zip
-  - PACK=apr
+  - PACK=gfortran
 install:
 - sudo apt update
 - sudo apt install dchroot debootstrap git
