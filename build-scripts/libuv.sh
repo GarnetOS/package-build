@@ -6,5 +6,6 @@ sh autogen.sh
 ./configure --prefix=/usr --disable-static
 make
 make install
+cd ..
 rm libuv-v1.38.1.tar.gz
 rm -rf libuv-v1.38.1
