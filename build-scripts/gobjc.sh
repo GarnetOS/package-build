@@ -13,8 +13,8 @@ cd    build
     --with-system-zlib                                 \
     --enable-languages=objc &&
 make -j4 -s
-ulimit -s 32768 &&
-make -k check -s
+#ulimit -s 32768 &&
+#make -k check -s
 ../contrib/test_summary
 make install &&
 
