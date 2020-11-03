@@ -12,7 +12,7 @@ cd    build
     --disable-multilib                                 \
     --with-system-zlib                                 \
     --enable-languages=d &&
-make -j4 -s
+travis_wait 30 make -j4 -s
 #ulimit -s 32768 &&
 #make -k -s check
 #../contrib/test_summary
