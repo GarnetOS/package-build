@@ -1,3 +1,4 @@
+build-scripts/prepare.sh
 wget https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz
 tar -xvf gcc-10.2.0.tar.xz
 cd gcc-10.2.0
