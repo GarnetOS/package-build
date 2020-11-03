@@ -3,7 +3,7 @@ os: linux
 language: minimal
 env:
   matrix:
-  - PACK=libio
+  - PACK=libaio
   - PACK=libatasmart
   - PACK=libuv
   - PACK=lzo
