@@ -13,9 +13,9 @@ cd    build
     --disable-multilib                                 \
     --with-system-zlib                                 \
     --enable-languages=obj-c++ &&
-make -j4
+make -j4 -s
 ulimit -s 32768 &&
-make -k check
+make -k -s check
 ../contrib/test_summary
 make install &&
 
