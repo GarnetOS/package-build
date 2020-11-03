@@ -12,7 +12,7 @@ cd    build
     --disable-multilib                                 \
     --with-system-zlib                                 \
     --enable-languages=go &&
-make
+make -j4
 ulimit -s 32768 &&
 make -k check
 ../contrib/test_summary
