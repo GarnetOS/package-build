@@ -13,8 +13,8 @@ cd    build
     --with-system-zlib                                 \
     --enable-languages=go &&
 make -j4 -s
-ulimit -s 32768 &&
-make -k -s check
+#ulimit -s 32768 &&
+#make -k -s check
 ../contrib/test_summary
 make install &&
 
