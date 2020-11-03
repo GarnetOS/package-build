@@ -3,11 +3,11 @@ os: linux
 language: minimal
 env:
   matrix:
-  - PACK=gdc
-  - PACK=gobjc
-  - PACK=gccgo
-  - PACK=gobjc++
-  - PACK=gfortran
+  - PACK=libio
+  - PACK=libatasmart
+  - PACK=libuv
+  - PACK=lzo
+  - PACK=iso-codes
 install:
 - sudo apt update
 - sudo apt install dchroot debootstrap git
