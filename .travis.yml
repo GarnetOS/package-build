@@ -7,6 +7,7 @@ env:
   - PACK=gobjc
   - PACK=gccgo
   - PACK=gobjc++
+  - PACK=gfortran
 install:
 - sudo apt update
 - sudo apt install dchroot debootstrap git
