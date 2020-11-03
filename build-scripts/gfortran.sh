@@ -1,6 +1,6 @@
 build-scripts/prepare.sh
 wget https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz
-tar -xvf gcc-10.2.0.tar.xz
+tar -xf gcc-10.2.0.tar.xz
 cd gcc-10.2.0
 case $(uname -m) in x86_64) sed -i.orig '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64 ;;esac
 
