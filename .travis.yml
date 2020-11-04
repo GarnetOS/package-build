@@ -27,7 +27,7 @@ script:
 - sudo xargs rm -r -f <delete
 - rm -r ./chroot/build-scripts
 - find ./chroot/
-- tar -zcvf $PACK -C chroot .
+- tar -zcf $PACK -C chroot .
 - mkdir out
 - cp $PACK ./out/
 after_script:
