@@ -16,7 +16,7 @@ make -j4 -s
 #ulimit -s 32768 &&
 #make -k -s check
 #../contrib/test_summary
-make install
+make install -s
 
 mkdir -pv /usr/share/gdb/auto-load/usr/lib              
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib 
