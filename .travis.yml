@@ -21,7 +21,7 @@ script:
 - chmod +x -R ./build-scripts/
 - cp -r ./build-scripts/ ./chroot
 - sudo mount --bind /dev ./chroot/dev/
-- travis_wait 90 sudo chroot ./chroot build-scripts/$PACK.sh
+- travis_wait 120 sudo chroot ./chroot build-scripts/$PACK.sh
 - ls
 - build-scripts/empty.sh
 - sudo xargs rm -r -f <delete
