@@ -11,12 +11,12 @@ cd    build
     --prefix=/usr                                      \
     --disable-multilib                                 \
     --with-system-zlib                                 \
-    --enable-languages=fortran
-make -j4 -s
+    --enable-languages=fortran > /dev/null 2>&1
+make -j4 -s > /dev/null 2>&1
 #ulimit -s 32768 
 #make -k -s check
 #../contrib/test_summary
-make install -s
+make install -s > /dev/null 2>&1
 
 mkdir -p /usr/share/gdb/auto-load/usr/lib              
 mv /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib 
