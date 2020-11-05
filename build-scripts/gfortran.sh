@@ -11,17 +11,17 @@ cd    build
     --prefix=/usr                                      \
     --disable-multilib                                 \
     --with-system-zlib                                 \
-    --enable-languages=fortran 
+    --enable-languages=fortran
 make -j4 -s
 #ulimit -s 32768 
 #make -k -s check
 #../contrib/test_summary
 make install -s
 
-mkdir -pv /usr/share/gdb/auto-load/usr/lib              
-mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib 
+mkdir -p /usr/share/gdb/auto-load/usr/lib              
+mv /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib 
 
-chown -v -R root:root \
+chown -R root:root \
     /usr/lib/gcc/*linux-gnu/10.2.0/include{,-fixed}
 
 rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/10.2.0/include-fixed/bits/
