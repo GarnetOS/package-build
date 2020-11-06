@@ -25,6 +25,6 @@ chown -R root:root \
     /usr/lib/gcc/*linux-gnu/10.2.0/include{,-fixed}
 
 rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/10.2.0/include-fixed/bits/
-cd ..
+cd ../..
 rm gcc-10.2.0.tar.xz
 rm -rf gcc-10.2.0
