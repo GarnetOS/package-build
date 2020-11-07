@@ -3,23 +3,11 @@ os: linux
 language: minimal
 env:
   matrix:
-  - PACK=acpid
-  - PACK=cdparanoia
-  - PACK=fdk-aac
-  - PACK=fftw
-  - PACK=hicolor-icon-theme
-  - PACK=jansson
-  - PACK=libcddb
-  - PACK=libdvdread
-  - PACK=libgpg-error
-  - PACK=libogg
-  - PACK=mtdev
-  - PACK=net-tools
-  - PACK=nettle
-  - PACK=nspr
-  - PACK=rpcsvc-proto
-  - PACK=sgml-common
-  - PACK=shareutils
+  - PACK=gccgo
+  - PACK=gdc
+  - PACK=gfortran
+  - PACK=gobjc
+  - PACK=gobjc++
 install:
 - sudo apt update
 - sudo apt install dchroot debootstrap git
