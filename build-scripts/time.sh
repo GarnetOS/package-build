@@ -8,4 +8,4 @@ make
 make install
 cd ..
 rm time-1.9.tar.gz
-rm -rftime-1
+rm -rf time-1.9

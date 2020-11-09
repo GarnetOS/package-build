@@ -13,4 +13,4 @@ make
 make install
 cd ..
 rm sharutils-4.15.2.tar.xz
-rm -rfsharutils-4
+rm -rf sharutils-4.15.2

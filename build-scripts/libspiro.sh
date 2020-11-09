@@ -8,4 +8,4 @@ make
 make install
 cd ..
 rm libspiro-dist-20200505.tar.gz
-rm -rflibspiro-dist-20200505
+rm -rf libspiro-dist-20200505

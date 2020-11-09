@@ -8,4 +8,4 @@ make
 make install
 cd ..
 rm bubblewrap-0.4.1.tar.xz
-rm -rfbubblewrap-0
+rm -rf bubblewrap-0.4.1

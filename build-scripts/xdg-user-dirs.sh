@@ -8,4 +8,4 @@ make
 make install
 cd ..
 rm xdg-user-dirs-0.17.tar.gz
-rm -rfxdg-user-dirs-0
+rm -rf xdg-user-dirs-0.17

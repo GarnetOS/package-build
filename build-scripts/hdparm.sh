@@ -7,4 +7,4 @@ make
 make install
 cd ..
 rm hdparm-9.58.tar.gz
-rm -rfhdparm-9
+rm -rf hdparm-9.58

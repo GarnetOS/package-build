@@ -9,4 +9,4 @@ make install &&
 install -m755 -v xbm2xface.pl /usr/bin
 cd ..
 rm compface-1.5.2.tar.gz
-rm -rfcompface-1
+rm -rf compface-1.5.2
