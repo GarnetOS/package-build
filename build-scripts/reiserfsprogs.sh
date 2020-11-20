@@ -10,4 +10,4 @@ make
 make install
 cd ..
 rm reiserfsprogs-3.6.27.tar.xz
-rm reiserfsprogs-3.6.27
+rm -rf reiserfsprogs-3.6.27
