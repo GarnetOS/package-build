@@ -3,43 +3,7 @@ os: linux
 language: minimal
 env:
   matrix:
-  - PACK=gnome-backgrounds
-  - PACK=gnome-video-effects
-  - PACK=libburn
-  - PACK=libisofs
-  - PACK=libmnl
-  - PACK=libndb
-  - PACK=librep
-  - PACK=lsb-tools
-  - PACK=lxmenu-data
-  - PACK=rpcsvc
-  - PACK=sg3_utils
-  - PACK=sound-theme-freedesktop
-  - PACK=traceroute
-  - PACK=unrar
-  - PACK=bubblewrap
-  - PACK=compface
-  - PACK=hdparm
-  - PACK=libspiro
-  - PACK=sharutils
-  - PACK=time
-  - PACK=tree
-  - PACK=xdg-user-dirs
-  - PACK=glm
-  - PACK=pth
-  - PACK=npth
-  - PACK=libstatgrab
-  - PACK=libsigsegv
-  - PACK=libpaper
-  - PACK=liblinear
-  - PACK=libatomic_ops
-  - PACK=tcsh
-  - PACK=dosfstools
-  - PACK=xfsprogs
-  - PACK=reiserfsprogs
-  - PACK=jfsutils
-  - PACK=joe
-  - PACK=haveged
+  - PACK=gc
 install:
 - sudo apt update
 - sudo apt install schroot debootstrap git
