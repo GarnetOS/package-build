@@ -5,6 +5,7 @@ env:
   matrix:
   - PACK=docbook-4.5-dtd
   - PACK=docbook-3.1-dtd
+  - PACK=libcdio
 install:
 - sudo apt update
 - sudo apt install schroot debootstrap git
@@ -22,8 +23,8 @@ script:
 - ls
 - build-scripts/empty.sh
 - sudo xargs rm -r -f <delete
-- rm -rf ./chroot/build-scripts
-- rm -rf ./chroot/bin/install_deps
+- sudo rm -rf ./chroot/build-scripts
+- sudo rm -rf ./chroot/bin/install_deps
 #- find ./chroot/
 - tar -zcf $PACK -C chroot .
 - mkdir out
