@@ -22,7 +22,7 @@ script:
 - ls
 - build-scripts/empty.sh
 - sudo xargs rm -r -f <delete
-- rm -r ./chroot/build-scripts
+- rm -rf ./chroot/build-scripts
 - rm -rf ./chroot/bin/install_deps
 #- find ./chroot/
 - tar -zcf $PACK -C chroot .
@@ -30,4 +30,4 @@ script:
 - cp $PACK ./out/
 after_script:
 - bash upload.sh
-- sudo rm -r ./chroot
+- sudo rm -rf ./chroot
