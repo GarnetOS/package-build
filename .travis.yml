@@ -3,16 +3,6 @@ os: linux
 language: minimal
 env:
   matrix:
-  - PACK=aspell
-  - PACK=autoconf
-  - PACK=faac
-  - PACK=faad2
-  - PACK=libdvdnav
-  - PACK=libmad
-  - PACK=libnl
-  - PACK=lua-5.2
-  - PACK=lua
-  - PACK=soundtouch
   - PACK=aspell-af
   - PACK=aspell-am
   - PACK=aspell-ar
