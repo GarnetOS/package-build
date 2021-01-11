@@ -124,7 +124,7 @@ script:
 - sudo rm -rf ./chroot/build-scripts
 - sudo rm -rf ./chroot/bin/install_deps
 #- find ./chroot/
-- tar -zcf $PACK -C chroot .
+- sudo tar -zcf $PACK -C chroot .
 - mkdir out
 - cp $PACK ./out/
 after_script:
