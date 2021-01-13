@@ -1,0 +1,6 @@
+  - PACK=docbook-3.1-dtd.sh
+  - PACK=docbook-4.5-dtd.sh
+  - PACK=libdvdnav.sh
+  - PACK=gc.sh
+  - PACK=aspell.sh
+  - PACK=libcdio.sh
