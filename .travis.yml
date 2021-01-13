@@ -10,7 +10,6 @@ env:
   - PACK=cdparanoia
   - PACK=compface
   - PACK=dosfstools
-  - PACK=empty
   - PACK=faac
   - PACK=faad2
   - PACK=fdk-aac
@@ -60,7 +59,6 @@ env:
   - PACK=nettle
   - PACK=npth
   - PACK=nspr
-  - PACK=prepare
   - PACK=pth
   - PACK=reiserfsprogs
   - PACK=rpcsvc-proto
@@ -96,7 +94,7 @@ script:
 - sudo mount --bind /dev ./chroot/dev/
 - travis_wait 150 sudo chroot ./chroot build-scripts/$PACK.sh
 - ls
-- fdupes -rdN chroot chroot-old
+- fdupes -rdqN chroot-old chroot
 - sudo rm -rf ./chroot/build-scripts
 - sudo rm -rf ./chroot/bin/install_deps
 - sudo tar -zcf $PACK -C chroot .

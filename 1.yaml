@@ -5,7 +5,6 @@
   - PACK=cdparanoia
   - PACK=compface
   - PACK=dosfstools
-  - PACK=empty
   - PACK=faac
   - PACK=faad2
   - PACK=fdk-aac
@@ -57,7 +56,6 @@
   - PACK=npth
   - PACK=nspr
   - PACK=popt.unfinishable
-  - PACK=prepare
   - PACK=pth
   - PACK=reiserfsprogs
   - PACK=rpcsvc-proto
