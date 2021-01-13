@@ -98,7 +98,7 @@ script:
 - sudo mount --bind /dev ./chroot/dev/
 - travis_wait 150 sudo chroot ./chroot build-scripts/$PACK.sh
 - ls
-- fdupes --delete chroot chroot-old
+- fdupes -rdN chroot chroot-old
 - sudo rm -rf ./chroot/build-scripts
 - sudo rm -rf ./chroot/bin/install_deps
 - sudo tar -zcf $PACK -C chroot .
