@@ -31,7 +31,6 @@ env:
   - PACK=jfsutils
   - PACK=joe
   - PACK=libaio
-  - PACK=libarchive.unfinished
   - PACK=libatasmart
   - PACK=libatomic_ops
   - PACK=libburn
@@ -61,7 +60,6 @@ env:
   - PACK=nettle
   - PACK=npth
   - PACK=nspr
-  - PACK=popt.unfinishable
   - PACK=prepare
   - PACK=pth
   - PACK=reiserfsprogs
