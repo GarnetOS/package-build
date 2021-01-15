@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Build
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -11,15 +11,12 @@ on:
       name:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Compile'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        pack: [gccgo, gdc, gobjc, gobjc++]
+        pack: [gccgo, gdc, gobjc, gobjc++, fftw]
     steps:
       - name: Compile
       - run: |
@@ -45,5 +42,5 @@ jobs:
                 cp ${{ matrix.pack }} ./out/
                 bash upload.sh
                 sudo rm -rf ./chroot
-                gh auth login --with-token <<< "GITHUB_TOKEN"
+                gh auth login --with-token <<< ${{ secrets.TOKEN }}
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
