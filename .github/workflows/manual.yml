@@ -8,6 +8,8 @@ jobs:
       matrix:
         pack: [gccgo, gdc, gobjc, gobjc++, fftw]
     steps:
+      - env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }} 
       - name: R
         run: echo ${{ secrets.T }}
       - name: Compile
@@ -35,7 +37,7 @@ jobs:
                 cp ${{ matrix.pack }} ./out/
                 bash upload.sh
                 sudo rm -rf ./chroot
-                gh auth login --with-token <<< ${{ secrets.TOKEN }}
+                gh auth login --with-token <<< "GITHUB_TOKEN"
                 echo ${{ secrets.T }}
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
   
