@@ -2,12 +2,19 @@ on:
   workflow_dispatch:
 name: Build
 jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: echo ${{ secrets.T }}
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         pack: [gccgo, gdc, gobjc, gobjc++, fftw]
     steps:
+      - name: R
+        run: echo "test"
       - name: Compile
         run: |
                 sudo apt update
@@ -36,3 +43,4 @@ jobs:
                 gh auth login --with-token <<< ${{ secrets.TOKEN }}
                 echo ${{ secrets.T }}
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
+  
