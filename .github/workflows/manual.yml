@@ -2,11 +2,6 @@ on:
   workflow_dispatch:
 name: Build
 jobs:
-  create:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test
-        run: echo ${{ secrets.T }}
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -14,7 +9,7 @@ jobs:
         pack: [gccgo, gdc, gobjc, gobjc++, fftw]
     steps:
       - name: R
-        run: echo "test"
+        run: echo ${{ secrets.T }}
       - name: Compile
         run: |
                 sudo apt update
