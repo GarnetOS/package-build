@@ -8,11 +8,11 @@ jobs:
       matrix:
         pack: [gccgo, gdc, gobjc, gobjc++, fftw]
     steps:
-      - env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }} 
       - name: R
         run: echo ${{ secrets.T }}
       - name: Compile
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }} 
         run: |
                 sudo apt update
                 sudo apt install schroot debootstrap git fdupes
