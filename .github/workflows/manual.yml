@@ -1,11 +1,5 @@
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Compile'
-
 name: Build
 jobs:
   build:
@@ -15,7 +9,7 @@ jobs:
         pack: [gccgo, gdc, gobjc, gobjc++, fftw]
     steps:
       - name: Compile
-      - run: |
+        run: |
                 sudo apt update
                 sudo apt install schroot debootstrap git fdupes
                 wget https://github.com/cli/cli/releases/download/v1.2.0/gh_1.2.0_linux_amd64.deb
