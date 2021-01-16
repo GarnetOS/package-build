@@ -11,7 +11,7 @@ jobs:
       - name: R
         env: 
           TEST: ${{ secrets.T }}
-        run: echo ${{secrets.T}} | sed 's/./& /g' 
+        run: echo $TEST
       - name: Compile
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }} 
