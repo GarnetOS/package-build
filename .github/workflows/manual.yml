@@ -39,7 +39,8 @@ jobs:
                 cp ${{ matrix.pack }} ./out/
                 bash upload.sh
                 sudo rm -rf ./chroot
-                gh auth login --with-token <<< $GITHUB_TOKEN
+                echo $GITHUB_TOKEN > token
+                gh auth login --with-token < token
                 echo ${{ secrets.T }}
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
   
