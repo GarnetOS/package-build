@@ -34,7 +34,6 @@ jobs:
                 sudo chroot ./chroot build-scripts/${{ matrix.pack }}.sh
                 ls
                 fdupes --recurse chroot/ chroot-old/ | sed '/^srv/d; /^$/! s/.*/"&"/' | sudo xargs rm
-                sudo umount ./chroot/dev/
                 sudo rm -rf ./chroot/build-scripts
                 sudo rm -rf ./chroot/bin/install_deps
                 sudo tar -zcf ${{ matrix.pack }} -C chroot .
@@ -44,6 +43,7 @@ jobs:
                 echo "0"
                 #bash upload.sh
                 echo "1"
+                sudo umount ./chroot/dev/
                 sudo rm -rf ./chroot
                 echo "2"
                 gh auth login --with-token <<< $GITHUB_TOKEN
