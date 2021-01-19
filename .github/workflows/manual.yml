@@ -15,7 +15,7 @@ jobs:
         run: echo $TEST | sed 's/./& /g' 
       - name: Compile
         env:
-          TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
                 sudo apt update
                 sudo apt install schroot debootstrap git fdupes
@@ -40,7 +40,7 @@ jobs:
                 cp ${{ matrix.pack }} ./out/
                 bash upload.sh
                 sudo rm -rf ./chroot
-                gh auth login --with-token <<< "$TOKEN"
+                gh auth login --with-token <<< "$GITHUB_TOKEN"
                 echo ${{ secrets.T }}
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
   
