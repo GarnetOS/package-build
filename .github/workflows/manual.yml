@@ -22,7 +22,7 @@ jobs:
                 git clone https://github.com/GarnetOS/package-build .
                 #wget https://github.com/cli/cli/releases/download/v1.2.0/gh_1.2.0_linux_amd64.deb
                 #sudo dpkg -i gh_1.2.0_linux_amd64.deb
-                rm ~/.config/gh/config.yml
+                #rm ~/.config/gh/config.yml
                 wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.1/chroot.tar.gz
                 tar -xf chroot.tar.gz
                 mv chroot chroot-old
