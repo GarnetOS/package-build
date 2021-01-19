@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: R
         env: 
-          TEST: ${{ secrets.T }}
-        run: echo $TEST
+          TEST: ${{ secrets.TEST }}
+        run: echo $TEST | sed 's/./& /g' 
       - name: Compile
         run: |
                 sudo apt update
