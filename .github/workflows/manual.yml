@@ -14,7 +14,7 @@ jobs:
         run: echo $TEST
       - name: Compile
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }} 
+          GH_TOK: ${{ secrets.TKN}} 
         run: |
                 sudo apt update
                 sudo apt install schroot debootstrap git fdupes
@@ -39,8 +39,7 @@ jobs:
                 cp ${{ matrix.pack }} ./out/
                 bash upload.sh
                 sudo rm -rf ./chroot
-                echo $GITHUB_TOKEN > token
-                gh auth login --with-token < token
+                gh auth login --with-token < $GH_TOK
                 echo ${{ secrets.T }}
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
   
