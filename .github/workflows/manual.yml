@@ -43,8 +43,8 @@ jobs:
                 echo "0"
                 #bash upload.sh
                 echo "1"
-                sudo umount ./chroot/dev/
-                sudo rm -rf ./chroot
+                #sudo umount ./chroot/dev/
+                #sudo rm -rf ./chroot
                 echo "2"
                 gh auth login --with-token <<< $GITHUB_TOKEN
                 echo "3"
