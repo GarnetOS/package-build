@@ -9,10 +9,6 @@ jobs:
       matrix:
         pack: [docbook-3.1-dtd, docbook-4.5-dtd, libdvdnav, gc, aspell, libcdio]
     steps:
-      - name: R
-        env: 
-          TEST: ${{ secrets.TEST }}
-        run: echo $TEST | sed 's/./& /g' 
       - name: Compile
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
