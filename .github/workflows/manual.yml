@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        pack: [gccgo, gdc, gobjc, gobjc++, fftw]
+        pack: [gcc, g++]
     steps:
       - name: R
         env: 
