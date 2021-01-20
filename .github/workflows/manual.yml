@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        pack: [gcc, g++]
+        pack: [docbook-3.1-dtd, docbook-4.5-dtd, libdvdnav, gc, aspell, libcdio]
     steps:
       - name: R
         env: 
