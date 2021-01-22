@@ -16,9 +16,6 @@ jobs:
                 sudo apt update
                 sudo apt install schroot debootstrap git fdupes
                 git clone https://github.com/GarnetOS/package-build .
-                #wget https://github.com/cli/cli/releases/download/v1.2.0/gh_1.2.0_linux_amd64.deb
-                #sudo dpkg -i gh_1.2.0_linux_amd64.deb
-                #rm ~/.config/gh/config.yml
                 wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.1/chroot.tar.gz
                 tar -xf chroot.tar.gz
                 mv chroot chroot-old
@@ -34,15 +31,7 @@ jobs:
                 sudo rm -rf ./chroot/bin/install_deps
                 sudo tar -zcf ${{ matrix.pack }} -C chroot .
                 mkdir out
-                echo "-1"
                 cp ${{ matrix.pack }} ./out/
-                echo "0"
-                #bash upload.sh
-                echo "1"
                 #sudo umount ./chroot/dev/
-                #sudo rm -rf ./chroot
-                echo "2"
                 gh auth login --with-token <<< $GITHUB_TOKEN
-                echo "3"
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
-  
