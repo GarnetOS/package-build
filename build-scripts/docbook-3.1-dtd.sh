@@ -1,9 +1,12 @@
 build-scripts/prepare.sh
 wget http://www.docbook.org/sgml/3.1/docbk31.zip
 tar -xvf docbk31.zip
-cd 
+cd docbk31
 install_deps sgml_common
 install_deps unzip
+if [ -z "$old" ];
+then
+       exit
 sed -i -e '/ISO 8879/d' \
        -e 's|DTDDECL "-//OASIS//DTD DocBook V3.1//EN"|SGMLDECL|g' \
        docbook.cat
@@ -19,4 +22,4 @@ install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \
     /etc/sgml/sgml-docbook.cat
 cd ..
 rm docbk31.zip
-rm -rf 
+rm -rf docbk31
