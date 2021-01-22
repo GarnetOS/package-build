@@ -1,11 +1,15 @@
 build-scripts/prepare.sh
+install_deps libcddb
+if [ -z "$old" ];
+then
+       exit
 wget https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
 
 wget https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2
 
 tar -xvf libcdio-2.1.0.tar.bz2
 cd libcdio-2.1.0
-install_deps libcddb
+
 ./configure --prefix=/usr --disable-static &&
 make
 make install
