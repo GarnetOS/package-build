@@ -3,6 +3,9 @@ wget https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
 
 tar -xvf aspell-0.60.8.tar.gz
 cd aspell-0.60.8
+if [ -z "$old" ];
+then
+       exit
 install_deps which
 ./configure --prefix=/usr &&
 make
