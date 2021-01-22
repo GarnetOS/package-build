@@ -7,7 +7,7 @@ then
 wget http://www.docbook.org/sgml/4.5/docbook-4.5.zip
 
 unzip docbook-4.5.zip
-cd 
+cd docbook-4.5
 sed -i -e '/ISO 8879/d' \
        -e '/gml/d' docbook.cat
 install -v -d /usr/share/sgml/docbook/sgml-dtd-4.5 &&
@@ -34,4 +34,4 @@ PUBLIC "-//OASIS//DTD DocBook V4.0//EN" "docbook.dtd"
 EOF
 cd ..
 rm docbook-4.5.zip
-rm -rf 
+rm -rf docbook-4.5
