@@ -1,0 +1,41 @@
+on:
+  workflow_dispatch:
+name: Build 1st
+jobs:
+  build:
+    environment: manual
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        pack: [docbook-3.1-dtd, docbook-4.5-dtd, libdvdnav, gc, aspell, libcdio]
+    steps:
+      - name: Compile
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+                sudo apt update
+                sudo apt install schroot debootstrap git fdupes
+                git clone https://github.com/GarnetOS/package-build .
+                wget https://github.com/GarnetOS/package-build/releases/download/chroot-1.1/chroot.tar.gz
+                tar -xf chroot.tar.gz
+                mv chroot chroot-old
+                tar -xf chroot.tar.gz
+                ls
+                chmod +x -R ./build-scripts/
+                cp -r ./build-scripts/ ./chroot
+                cp -r ./build-scripts/ ./chroot-old
+                sudo mount --bind /dev ./chroot/dev/
+                sudo chroot ./chroot build-scripts/${{ matrix.pack }}.sh
+                sudo chroot ./chroot-old -c "export old=true"
+                sudo chroot ./chroot-old build-scripts/${{ matrix.pack }}.sh
+                sleep 5
+                sudo umount -lf ./chroot/dev/
+                #./build-scripts/rem.sh
+                ./build-scripts/join.sh
+                sudo rm -rf ./chroot/build-scripts
+                sudo rm -rf ./chroot/bin/install_deps
+                sudo tar -zcf ${{ matrix.pack }} -C chroot .
+                mkdir out
+                cp ${{ matrix.pack }} ./out/
+                gh auth login --with-token <<< $GITHUB_TOKEN
+                gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
