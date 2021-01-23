@@ -1,7 +1,7 @@
 # DIR1 is the main directory
 # DIR2 is from where files will get deleted.
-DIR1=chroot-old
-DIR2=chroot
+DIR1="chroot-old"
+DIR2="chroot"
 
 # Take a file from $DIR1 and check for it in $DIR2
 for i in $DIR1/*; do
