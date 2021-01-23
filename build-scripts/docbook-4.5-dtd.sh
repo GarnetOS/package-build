@@ -4,6 +4,7 @@ install_deps unzip
 if [ -z "$old" ];
 then
        exit
+fi
 wget http://www.docbook.org/sgml/4.5/docbook-4.5.zip
 
 unzip docbook-4.5.zip
