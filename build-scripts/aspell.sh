@@ -3,6 +3,7 @@ install_deps which
 if [ -z "$old" ];
 then
        exit
+fi
 wget https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
 
 tar -xvf aspell-0.60.8.tar.gz
