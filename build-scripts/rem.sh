@@ -11,6 +11,7 @@ for i in $DIR1/*; do
             HASH2=$(md5sum $j | cut -d ' ' -f1)
             if [ "$HASH" = "$HASH2" ]; then
                 # Delete files from $DIR2
+                echo "Deleting $j"
                 sudo rm $j
             fi
         done
