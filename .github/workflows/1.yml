@@ -23,15 +23,16 @@ jobs:
                 ls
                 chmod +x -R ./build-scripts/
                 cp -r ./build-scripts/ ./chroot
+                cp -r ./build-scripts/ ./chroot-old
                 sudo mount --bind /dev ./chroot/dev/
                 sudo chroot ./chroot build-scripts/${{ matrix.pack }}.sh
-                ls
-                find chroot/ chroot-old/ -type f -print0 | xargs -0 md5sum | sort | uniq -w32 -D | cut -c35- | xargs -o -d '\n' rm
+                sleep 5
+                sudo umount ./chroot/dev/
+                ./build-scripts/rem.sh
                 sudo rm -rf ./chroot/build-scripts
                 sudo rm -rf ./chroot/bin/install_deps
                 sudo tar -zcf ${{ matrix.pack }} -C chroot .
                 mkdir out
                 cp ${{ matrix.pack }} ./out/
-                #sudo umount ./chroot/dev/
                 gh auth login --with-token <<< $GITHUB_TOKEN
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
