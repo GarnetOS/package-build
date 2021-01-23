@@ -1,6 +1,6 @@
 on:
   workflow_dispatch:
-name: Build 1st
+name: Build 2nd
 jobs:
   build:
     environment: manual
