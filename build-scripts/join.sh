@@ -7,7 +7,7 @@ find $DIR1 -type f | xargs md5sum 2>/dev/null | sort > /tmp/m1
 find $DIR2 -type f | xargs md5sum 2>/dev/null | sort > /tmp/m2
 
 join /tmp/m1 /tmp/m2 > /tmp/m3
-cat /tmp/m3 | cut -d ' ' -f3 | xargs rm -f
+cat /tmp/m3 | cut -d ' ' -f3 | xargs sudo rm -f
 
 # To delete empty directories
 #find $DIR2 -type d -exec sudo rm -rf {} +
