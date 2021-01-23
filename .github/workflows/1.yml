@@ -29,6 +29,7 @@ jobs:
                 sleep 5
                 sudo umount -lf ./chroot/dev/
                 #./build-scripts/rem.sh
+                ./build-scripts/join.sh
                 fdupes -drN chroot chroot-old
                 sudo rm -rf ./chroot/build-scripts
                 sudo rm -rf ./chroot/bin/install_deps
