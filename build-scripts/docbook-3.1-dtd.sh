@@ -4,6 +4,7 @@ install_deps unzip
 if [ -z "$old" ];
 then
        exit
+fi
 wget http://www.docbook.org/sgml/3.1/docbk31.zip
 tar -xvf docbk31.zip
 cd docbk31
