@@ -26,7 +26,7 @@ jobs:
                 sudo mount --bind /dev ./chroot/dev/
                 sudo chroot ./chroot build-scripts/${{ matrix.pack }}.sh
                 ls
-                fdupes --recurse chroot/ chroot-old/ | sed '/^srv/d; /^$/! s/.*/"&"/' | sudo xargs rm
+                find chroot/ chroot-old/ -type f -print0 | xargs -0 md5sum | sort | uniq -w32 -D | cut -c35- | xargs -o -d '\n' rm
                 sudo rm -rf ./chroot/build-scripts
                 sudo rm -rf ./chroot/bin/install_deps
                 sudo tar -zcf ${{ matrix.pack }} -C chroot .
