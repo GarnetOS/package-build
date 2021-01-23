@@ -1,12 +1,12 @@
 build-scripts/prepare.sh
+install_deps libatomic_ops
+if [ -z "$old" ];
+then
+       exit
 wget https://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
 
 tar -xvf gc-8.0.4.tar.gz
 cd gc-8.0.4
-if [ -z "$old" ];
-then
-       exit
-install_deps libatomic_ops
 ./configure --prefix=/usr      \
             --enable-cplusplus \
             --disable-static   \
