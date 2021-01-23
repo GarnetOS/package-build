@@ -28,7 +28,8 @@ jobs:
                 sudo chroot ./chroot build-scripts/${{ matrix.pack }}.sh
                 sleep 5
                 sudo umount -lf ./chroot/dev/
-                ./build-scripts/rem.sh
+                #./build-scripts/rem.sh
+                fdupes -drN chroot chroot-old
                 sudo rm -rf ./chroot/build-scripts
                 sudo rm -rf ./chroot/bin/install_deps
                 sudo tar -zcf ${{ matrix.pack }} -C chroot .
