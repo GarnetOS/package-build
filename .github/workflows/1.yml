@@ -27,7 +27,7 @@ jobs:
                 sudo mount --bind /dev ./chroot/dev/
                 sudo chroot ./chroot build-scripts/${{ matrix.pack }}.sh
                 sleep 5
-                sudo umount ./chroot/dev/
+                sudo umount -lf ./chroot/dev/
                 ./build-scripts/rem.sh
                 sudo rm -rf ./chroot/build-scripts
                 sudo rm -rf ./chroot/bin/install_deps
