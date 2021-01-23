@@ -8,3 +8,4 @@ md5sum $DIR2/* 2>/dev/null | sort > /tmp/m2
 
 join /tmp/m1 /tmp/m2 > /tmp/m3
 cat /tmp/m3 | cut -d ' ' -f3 | xargs rm 
+cat /tmp/m3
