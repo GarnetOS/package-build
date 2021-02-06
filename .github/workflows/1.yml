@@ -28,8 +28,6 @@ jobs:
                 cp -r ./build-scripts/ ./chroot-old
                 sudo mount --bind /dev ./chroot/dev/  
       - name: Compile
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
                 sudo chroot ./chroot build-scripts/${{ matrix.pack }}.sh
       - name: Clean
@@ -40,6 +38,8 @@ jobs:
                 sudo rm -rf ./chroot/build-scripts
                 sudo rm -rf ./chroot/bin/install_deps
       - name: Upload
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
                 sudo tar -zcf ${{ matrix.pack }} -C chroot .
                 mkdir out
