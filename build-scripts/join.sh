@@ -10,3 +10,4 @@ join /tmp/m1 /tmp/m2 > /tmp/m3
 cat /tmp/m3 | cut -d ' ' -f3 | sudo xargs rm -f
 sudo find chroot -xtype l -delete
 sudo find chroot -type d -empty -delete
+sudo find chroot -xtype l -delete
