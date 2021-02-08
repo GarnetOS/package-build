@@ -41,5 +41,4 @@ jobs:
                 sudo tar -zcf ${{ matrix.pack }} -C chroot .
                 mkdir out
                 cp ${{ matrix.pack }} ./out/
-                #gh auth login --with-token <<< $GITHUB_TOKEN
                 gh release upload v1.0 ${{ matrix.pack }} -R GarnetOS/packages
