@@ -13,9 +13,6 @@ jobs:
         run: |
                 sudo apt update
                 sudo apt install schroot debootstrap git fdupes
-                wget https://github.com/cli/cli/releases/download/v1.4.0/gh_1.4.0_linux_amd64.deb
-                sudo dpkg -i gh_1.4.0_linux_amd64.deb
-                rm gh_1.4.0_linux_amd64.deb
                 git clone https://github.com/GarnetOS/package-build .
       - name: Prepare guest
         run: |
