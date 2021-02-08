@@ -6,6 +6,7 @@ jobs:
     environment: manual
     runs-on: ubuntu-18.04
     strategy:
+      fail-fast: false
       matrix: 
         pack: [acpid ,apr ,autoconf ,bubblewrap ,cdparanoia ,compface ,dosfstools ,faac ,faad2 ,fdk-aac ,fftw ,gccgo ,gdc ,gfortran, gcc, g++  ,glm ,gnome-backgrounds ,gnome-video-effects ,gobjc++ ,gobjc ,haveged ,hdparm ,hicolor-icon-theme ,iso-codes ,jansson ,jfsutils ,joe ,libaio ,libatasmart ,libatomic_ops ,libburn ,libcddb ,libdvdread ,libgpg-error ,libisofs ,liblinear ,libmad ,libmnl ,libndb ,libnl ,libogg ,libpaper ,librep ,libsigsegv ,libspiro ,libstatgrab ,libuv ,lsb-tools ,lua-5.2 ,lua ,lxmenu-data ,lzo ,mtdev ,net-tools ,nettle ,npth ,nspr ,pth ,reiserfsprogs ,rpcsvc-proto ,rpcsvc ,sg3_utils ,sgml-common ,sharutils ,sound-theme-freedesktop ,soundtouch ,tcsh ,time ,traceroute ,tree ,unrar ,unzip ,which ,xdg-user-dirs ,xfsprogs ,zip]
     steps:
