@@ -4,7 +4,7 @@ wget http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 wget http://www.linuxfromscratch.org/patches/blfs/10.0/gpm-1.20.7-consolidated-1.patch
 
 tar -xvf gpm-1.20.7.tar.bz2
-cd gpm-1.20.7.
+cd gpm-1.20.7
 patch -Np1 -i ../gpm-1.20.7-consolidated-1.patch &&
 ./autogen.sh                                     &&
 ./configure --prefix=/usr --sysconfdir=/etc      &&
