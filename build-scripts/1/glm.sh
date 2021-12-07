@@ -1,5 +1,9 @@
-build-scripts/prepare.sh
+if [ -z "$old" ];
+then
+   exit
+fi
 wget https://github.com/g-truc/glm/archive/0.9.9.8/glm-0.9.9.8.tar.gz
+
 tar -xvf glm-0.9.9.8.tar.gz
 cd glm-0.9.9.8
 cp -r glm /usr/include/ &&

@@ -1,5 +1,9 @@
-build-scripts/prepare.sh
+if [ -z "$old" ];
+then
+   exit
+fi
 wget https://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz
+
 tar -xvf pth-2.0.7.tar.gz
 cd pth-2.0.7
 sed -i 's#$(LOBJS): Makefile#$(LOBJS): pth_p.h Makefile#' Makefile.in &&
