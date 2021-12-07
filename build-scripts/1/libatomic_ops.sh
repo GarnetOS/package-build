@@ -1,5 +1,9 @@
-build-scripts/prepare.sh
+if [ -z "$old" ];
+then
+   exit
+fi
 wget https://github.com/ivmai/libatomic_ops/releases/download/v7.6.10/libatomic_ops-7.6.10.tar.gz
+
 tar -xvf libatomic_ops-7.6.10.tar.gz
 cd libatomic_ops-7.6.10
 ./configure --prefix=/usr    \
@@ -10,4 +14,4 @@ make
 make install
 cd ..
 rm libatomic_ops-7.6.10.tar.gz
-rm -rf libatomic_ops-7.6.10
+rm -rf libatomic_ops-7.6.1010
