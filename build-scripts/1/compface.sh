@@ -1,5 +1,8 @@
-build-scripts/prepare.sh
-wget http://anduin.linuxfromscratch.org/BLFS/compface/compface-1.5.2.tar.gz
+if [ -z "$old" ];
+then
+   exit
+fi
+wget https://anduin.linuxfromscratch.org/BLFS/compface/compface-1.5.2.tar.gz
 
 tar -xvf compface-1.5.2.tar.gz
 cd compface-1.5.2
@@ -7,6 +10,8 @@ cd compface-1.5.2
 make
 make install &&
 install -m755 -v xbm2xface.pl /usr/bin
+
+
 cd ..
 rm compface-1.5.2.tar.gz
 rm -rf compface-1.5.2

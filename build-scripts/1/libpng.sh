@@ -1,5 +1,8 @@
-build-scripts/prepare.sh
-wget https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz
+if [ -z "$old" ];
+then
+   exit
+fi
+wget  https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz
 
 wget https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.37-apng.patch.gz
 
@@ -11,6 +14,8 @@ make
 make install &&
 mkdir -v /usr/share/doc/libpng-1.6.37 &&
 cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.37
+
+
 cd ..
 rm libpng-1.6.37.tar.xz
 rm -rf libpng-1.6.37
