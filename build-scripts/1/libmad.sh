@@ -1,7 +1,10 @@
-build-scripts/prepare.sh
+if [ -z "$old" ];
+then
+   exit
+fi
 wget https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 
-wget http://www.linuxfromscratch.org/patches/blfs/10.0/libmad-0.15.1b-fixes-1.patch
+wget https://www.linuxfromscratch.org/patches/blfs/11.0/libmad-0.15.1b-fixes-1.patch
 
 tar -xvf libmad-0.15.1b.tar.gz
 cd libmad-0.15.1b
@@ -28,4 +31,4 @@ Cflags: -I${includedir}
 EOF
 cd ..
 rm libmad-0.15.1b.tar.gz
-rm -rf libmad-0.15.1b
+rm -rf libmad-0.15.1bm -rf libmad-0.15.1b

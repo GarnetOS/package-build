@@ -1,11 +1,14 @@
-build-scripts/prepare.sh
+if [ -z "$old" ];
+then
+   exit
+fi
 wget https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2
 
 tar -xvf sound-theme-freedesktop-0.8.tar.bz2
-cd sound-theme-freedesktop-0.8
+cd sound-theme-freedesktop-0.8.
 ./configure --prefix=/usr &&
 make
 make install
 cd ..
 rm sound-theme-freedesktop-0.8.tar.bz2
-rm -rf sound-theme-freedesktop-0.8
+rm -rf sound-theme-freedesktop-0.8.
