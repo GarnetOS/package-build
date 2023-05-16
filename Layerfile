@@ -3,4 +3,4 @@ RUN apt-get update
 COPY . .
 RUN ls
 RUN df
-RUN while true; do date; sleep 2; done
+RUN while true; do date; sleep 60; done
