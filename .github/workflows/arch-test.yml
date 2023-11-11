@@ -1,0 +1,106 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Preprare 
+
+# Controls when the workflow will run
+on:
+
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    strategy:
+      matrix:
+          arch: [armv6,armv7,aarch64,amd64,s390x,ppc64le,mips64le,i386]
+          distro: [bullseye]
+          include:
+            - arch: riscv64
+              distro: unstable
+    # The type of runner that the job will run on
+    runs-on: self-host
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+      - name: Prepare image
+        run: |
+            sudo apt install -y util-linux wget zip
+            sudo mkdir /mnt/lfs
+            dd if=/dev/zero of=VHD.img bs=1M count=20480
+            sudo mkfs -v -t ext4 VHD.img
+            sudo mount -o rw,acl,user_xattr VHD.img /mnt/lfs
+      - uses: GarnetOS/run-on-arch-action@v2.1.2
+        name: Download and release
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      #- uses: actions/checkout@v2
+      # Runs a set of commands using the runners shell
+        with:
+          arch: ${{matrix.arch}}
+          distro: ${{matrix.distro}}
+          setup: |
+            
+          dockerRunArgs: |
+            --volume "/mnt/lfs:/mnt/lfs"
+          run: |
+            uname -a
+            apt update
+            apt install -y wget zip util-linux
+            apt install -y gcc g++ gzip libc6 grep make patch perl python3 sed tar xz-utils binutils bison bzip2 coreutils diffutils findutils gawk texinfo
+            rm /bin/sh
+            ln -s /bin/bash /bin/sh
+            dd if=/dev/zero of=/mnt/lfs/output.img bs=1 count=0 seek=19G
+            rm /mnt/lfs/output.img
+            wget https://gist.githubusercontent.com/radimkohout/5f0e6ad2bd899d8f2a6b3636148664cb/raw/e5057e34464c621f0302dfe5a9ba7798b3649965/checkhost.sh
+            chmod +x checkhost.sh
+            ./checkhost.sh
+            export LFS=/mnt/lfs
+            useradd -m -s /bin/bash lfs
+            #groupadd lfs
+            mkdir -v $LFS/sources
+            chmod -v a+wt $LFS/sources
+            #dhclient -r
+            cd $LFS/sources
+            wget https://www.linuxfromscratch.org/lfs/downloads/12.0/wget-list
+            wget --input-file=wget-list --continue --directory-prefix=$LFS/sources --tries=2 || true
+            wget --directory-prefix=$LFS/sources https://raw.githubusercontent.com/tarmiste/lfs-non-ia/master/lfs-11.2/patches/gcc-11.2.0-armv6.patch
+            wget --directory-prefix=$LFS/sources https://raw.githubusercontent.com/tarmiste/lfs-non-ia/master/lfs-11.2/patches/gcc-11.2.0-armv7.patch
+            wget --directory-prefix=$LFS/sources https://raw.githubusercontent.com/tarmiste/lfs-non-ia/master/lfs-11.2/patches/gcc-11.2.0-armv8.patch
+            wget --directory-prefix=$LFS/sources https://raw.githubusercontent.com/tarmiste/lfs-non-ia/master/lfs-11.2/patches/binutils_ppc_fix_1.patch
+            wget --directory-prefix=$LFS/sources -O coreutils.patch https://711722.bugs.gentoo.org/attachment.cgi?id=617340
+            wget --directory-prefix=$LFS/sources https://github.com/p11-glue/p11-kit/releases/download/0.25.0/p11-kit-0.25.0.tar.xz
+            wget --directory-prefix=$LFS/sources https://github.com/lfs-book/make-ca/releases/download/v1.12/make-ca-1.12.tar.xz
+            wget --directory-prefix=$LFS/sources https://ftp.gnu.org/gnu/wget/wget-1.21.4.tar.gz
+            wget --directory-prefix=$LFS/sources https://github.com/NetworkConfiguration/dhcpcd/releases/download/v10.0.2/dhcpcd-10.0.2.tar.xz
+            wget --directory-prefix=$LFS/sources https://www.nano-editor.org/dist/v7/nano-7.2.tar.xz
+            
+            cd /mnt/lfs
+            mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
+            for i in bin lib sbin; do
+              ln -sv usr/$i $LFS/$i
+            done
+            case $(uname -m) in
+              x86_64) mkdir -pv $LFS/lib64 ;;
+              *64) mkdir -pv $LFS/lib64 ;;
+              *64le) mkdir -pv $LFS/lib64 ;;
+            esac
+            mkdir -pv $LFS/tools
+            chown -v lfs $LFS/{usr{,/*},lib,var,etc,bin,sbin,tools}
+            case $(uname -m) in
+              x86_64) chown -v lfs $LFS/lib64 ;;
+              *64) chown -v lfs $LFS/lib64 ;;
+              *64le) chown -v lfs $LFS/lib64 ;;
+            esac
+            chown -v lfs $LFS/sources
+      - name: Unmount
+        run: |
+            sudo umount /mnt/lfs
+      - name: Prepare image
+        run: |
+               tar -czvf out.tar.gz VHD.img
+      - uses: actions/upload-artifact@v2
+        with:
+          name: out-${{matrix.arch}}-0
+          path: out.tar.gz
