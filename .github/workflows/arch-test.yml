@@ -13,11 +13,11 @@ jobs:
   build:
     strategy:
       matrix:
-          arch: [armv6,armv7,aarch64,amd64,s390x,ppc64le,mips64le,i386]
+          arch: [armv6,armv7,aarch64,amd64,i386] #,s390x,ppc64le,mips64le]
           distro: [bullseye]
-          include:
-            - arch: riscv64
-              distro: unstable
+          #include:
+          #  - arch: riscv64
+          #    distro: unstable
     # The type of runner that the job will run on
     runs-on: self-hosted
 
