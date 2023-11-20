@@ -17,6 +17,8 @@ jobs:
     runs-on: self-hosted
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Install needed binaries
+        run: apt-get install qemu binfmt-support qemu-user-static
       - uses: GarnetOS/run-on-arch-action@v2.1.2
         name: Download and release
         with:
