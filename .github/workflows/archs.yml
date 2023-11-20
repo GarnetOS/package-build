@@ -1,0 +1,26 @@
+name: Archs
+
+on:
+  workflow_dispatch:
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    strategy:
+      matrix:
+          arch: [armv6,armv7,aarch64,amd64,ppc64le,i386]
+          distro: [bullseye]
+          include:
+            - arch: riscv64
+              distro: unstable
+    # The type of runner that the job will run on
+    runs-on: self-hosted
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: GarnetOS/run-on-arch-action@v2.1.2
+        name: Download and release
+        with:
+          arch: ${{matrix.arch}}
+          distro: ${{matrix.distro}}
+          run: |
+            uname -m
