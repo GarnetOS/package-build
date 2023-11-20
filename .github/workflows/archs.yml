@@ -20,7 +20,7 @@ jobs:
       - name: Install needed binaries
         run: |
           sudo apt update
-          sudo apt-get install qemu binfmt-support qemu-user-static qemu-system* -y
+          sudo apt-get install qemu binfmt-support qemu-user-static -y
           #docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
           docker run --rm --privileged aptman/qus -- -r
           docker run --rm --privileged aptman/qus -s -- -p x86_64 i386 arm armeb aarch64 riscv64
