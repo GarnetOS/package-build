@@ -20,7 +20,7 @@ jobs:
       - name: Install needed binaries
         run: |
           sudo apt update
-          sudo apt-get install qemu binfmt-support qemu-user-static
+          sudo apt-get install qemu binfmt-support qemu-user-static -y
       - uses: GarnetOS/run-on-arch-action@v2.1.2
         name: Download and release
         with:
