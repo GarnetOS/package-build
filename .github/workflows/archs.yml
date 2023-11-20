@@ -20,7 +20,7 @@ jobs:
       - name: Install needed binaries
         run: |
           sudo apt update
-          sudo apt-get install qemu binfmt-support qemu-user-static -y
+          sudo apt-get install qemu binfmt-support qemu-user-static qemu-user* qemu-system* -y
           #docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
           docker run --rm --privileged aptman/qus -s -- -p x86_64 i386 i486 alpha arm armeb sparc32plus ppc ppc64 ppc64le m68k mips mipsel mipsn32 mipsn32el mips64 mips64el sh4 sh4eb s390x aarch64 aarch64_be hppa riscv32 riscv64 xtensa xtensaeb microblaze microblazeel or1k x86_64
       - uses: GarnetOS/run-on-arch-action@v2.1.2
