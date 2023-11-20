@@ -12,3 +12,5 @@ jobs:
     - run: |
           echo "🎉 This job uses runner scale set runners!"
           uname -a
+          docker ps -a
+          cat /etc/issue
